@@ -16,6 +16,8 @@
 #include "TinyWireM.h"
 #define Wire TinyWireM
 #else
+#include <Adafruit_BusIO_Register.h>
+#include <Adafruit_I2CDevice.h>
 #include <Wire.h>
 #endif
 
@@ -81,19 +83,18 @@ public:
    */
   Adafruit_HMC5883_Unified(int32_t sensorID = -1);
 
-  bool begin(void); //!< @return Returns whether connection was successful
+  bool begin(uint8_t i2c_address = HMC5883_ADDRESS_MAG, TwoWire *wire = &Wire, int32_t sensor_id = 1); //!< @return Returns whether connection was successful
   void setMagGain(hmc5883MagGain gain); //!< @param gain Desired magnetic gain
   bool
   getEvent(sensors_event_t *); //!< @return Returns the most recent sensor event
   void getSensor(sensor_t *);
 
 private:
+  Adafruit_I2CDevice *i2c_dev;
   hmc5883MagGain _magGain;
   hmc5883MagData _magData; // Last read magnetometer data will be available here
   int32_t _sensorID;
 
-  void write8(byte address, byte reg, byte value);
-  byte read8(byte address, byte reg);
   void read(void);
 };
 

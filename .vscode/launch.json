@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "d:/Work/Niraelectronic/work/Maixduino/Projects/ESP32/GY-87/GY-87/.pio/libdeps/upesy_wroom/Adafruit_HMC5883",
+      "program": "d:/Work/Niraelectronic/work/Maixduino/Projects/ESP32/GY-87/GY-87/.pio/libdeps/upesy_wroom/Adafruit_HMC5883/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
